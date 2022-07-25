@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Decadaire
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<h3>Visualisation Decadaire</h3>
+					</div>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>
+									Nom
+								</th>
+								<td>
+									{{ decadaire.nom }}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									Debut
+								</th>
+								<td>
+									{{ decadaire.debut ? decadaire.debut|date('d-m-Y') : '' }}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									Fin
+								</th>
+								<td>
+									{{ decadaire.fin ? decadaire.fin|date('d-m-Y') : '' }}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									Etat
+								</th>
+								<td>
+									{{ decadaire.etat ? 'Ouvert' : 'Clôturé' }}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<a href="{{ path('app_decadaire_index') }}">
+						<button class="btn btn-primary" title="retour à la liste">
+							<span class="fa fa-list"></span>
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<h3>Fiches d'enregistrement</h3>
+					</div>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Type</th>
+								<th>Date</th>
+								<th>Nombre</th>
+								<th>Montant (francs CFA)</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% set nombre = 0 %}
+							{% set nombrePD = 0 %}
+							{% set nombreDJ = 0 %}
+							{% set nombreDN = 0 %}
+							{% set montant = 0 %}
+							{% for fiche in decadaire.fiches %}
+								{% if fiche.type  %}{% endif %}
+
+								<tr>
+									<td>{{ fiche.type }}</td>
+									<td>{{ fiche.date ? fiche.date|date('d/m/Y') : '' }}</td>
+									<td>{{ fiche.nombre|number_format(0, '.', ' ') }}
+										{% set nombre = nombre + fiche.nombre %}</td>
+									<td style="font-weight: bold;">{{ (fiche.nombre * fiche.type.valeur)|number_format(0, '.', ' ') }}
+										{% set montant = montant + (fiche.nombre * fiche.type.valeur) %}
+									</td>
+								</tr>
+							{% else %}
+								<tr>
+									<td colspan="4">Aucun enregistrement trouvé</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+						<tfoot>
+
+							<tr>
+								<th colspan="2">Totaux</th>
+								<th>{{ nombre|number_format(0, '.', ' ') }}</th>
+								<th>{{ montant|number_format(0, '.', ' ') }}</th>
+							</tr>
+
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--div class="col-md-4">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							<div class="panel-title">
+								<h3>Résumé decadaire</h3>
+							</div>
+						</div>
+						<div class="panel-body">
+							<ul class="list-group border-bottom">
+								<li class="list-group-item">Petit déjt<span class="badge">14</span>
+									<span class="badge">14</span>
+								</li>
+								<li class="list-group-item">Repas
+									<span class="badge badge-danger">8</span>
+								</li>
+								<li class="list-group-item">Diner<span class="badge badge-info">7</span>
+								</li>
+								<li class="list-group-item">Maecenas mauris diam<span class="badge badge-success">25</span>
+								</li>
+								<li class="list-group-item">Curabitur porttitor massa justo<span class="badge badge-warning">58</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div-->
+	</div>
+{% endblock %}
+

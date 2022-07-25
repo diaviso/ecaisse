@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche index
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+
+		<div class="col-md-9"></div>
+		<div class="col-md-3">
+			<button class="btn btn-success btn-block" data-toggle="modal" data-target="#modal_basic">
+				<span class="fa fa-plus"></span>Ajouter
+			</button>
+		</div>
+		<div class="col-md-12">
+			<div class="panel panel-success">
+				<div
+					class="panel-body">
+					<!-- START DATATABLE EXPORT -->
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Liste des fiches</h3>
+							<div class="btn-group pull-right">
+								<button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+									<i class="fa fa-bars"></i>Exporter vers Excel
+								</button>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#" onclick="$('#customers2').tableExport({type:'excel',escape:'false'});">
+											<img src="{{ asset('joli/img/icons/xls.png') }}" width="24"/>XLS
+										</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="panel-body">
+							<table id="customers2" class="table datatable table-striped">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Décadaire</th>
+										<th>Type</th>
+										<th>Date</th>
+										<th>Nombre</th>
+										<th>Montant</th>
+										<th>actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for fiche in fiches %}
+										<tr>
+											<td>{{ fiche.id }}</td>
+											<td>{{ fiche.decadaire }}</td>
+											<td>{{ fiche.type }}</td>
+											<td>{{ fiche.date ? fiche.date|date('d/m/Y') : '' }}</td>
+											<td>{{ fiche.nombre|number_format(0, '.', ' ') }}</td>
+											<td style="text-align:right; font-weight: bold;">{{ (fiche.nombre * fiche.type.valeur)|number_format(0, '.', ' ') }}
+												francs
+											</td>
+											<td>
+												{% if fiche.decadaire.etat %}
+
+													<a href="{{ path('app_fiche_edit', {'id': fiche.id}) }}">
+														<button class="btn-primary" title="Modifier">
+															<span class="fa fa-edit"></span>
+														</button>
+													</a>
+													{{ include('fiche/_delete_form.html.twig') }}
+												{% endif %}
+											</td>
+										</tr>
+									{% else %}
+										<tr>
+											<td colspan="4">Aucun enregistrement trouvé</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+					<!-- END DATATABLE EXPORT -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MODALS -->
+	<div class="modal" id="modal_basic" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="defModalHead">Fomulaire d'ajout</h4>
+				</div>
+				<div class="modal-body">
+					{{ include('fiche/_form.html.twig') }}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts_template %}
+	<!-- START THIS PAGE PLUGINS-->
+	<script type="text/javascript" src="{{ asset('joli/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('joli/js/plugins/tableexport/tableExport.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('joli/js/plugins/tableexport/jquery.base64.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('joli/js/plugins/tableexport/html2canvas.js') }}"></script>
+
+	<script type="text/javascript" src="{{ asset('joli/js/plugins/bootstrap/bootstrap-select.js')}}"></script>
+	<script type="text/javascript" src="{{ asset('joli/js/plugins/tagsinput/jquery.tagsinput.min.js') }}"></script>
+	<!-- END THIS PAGE PLUGINS-->
+
+{% endblock %}
+

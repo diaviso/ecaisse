@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Decadaire{% endblock %}
+
+{% block body %}
+    <h1>Create new Decadaire</h1>
+
+    {{ include('decadaire/_form.html.twig') }}
+
+    <a href="{{ path('app_decadaire_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h3>Visualisation Fiche</h3>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                                                    <tr>
+                                <th>
+                                    Id                                </th>
+                                <td>
+                                    {{ fiche.id }}
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    Date                                </th>
+                                <td>
+                                    {{ fiche.date ? fiche.date|date('Y-m-d') : '' }}
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    Nombre                                </th>
+                                <td>
+                                    {{ fiche.nombre }}
+                                </td>
+                            </tr>
+                                            </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a href="{{ path('app_fiche_index') }}"><button class="btn btn-primary" title="retour à la liste"><span class="fa fa-list"></span></button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Versement
+{% endblock %}
+
+{% block body %}
+
+	{% include "minimaint.html.twig" %}
+	<hr>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<h3>Visualisation Versement</h3>
+					</div>
+				</div>
+				<div class="panel-body">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th>
+									Id
+								</th>
+								<td>
+									{{ versement.id }}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									Objet
+								</th>
+								<td>
+									{{ versement.objet }}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									PartieVersante
+								</th>
+								<td>
+									{{ versement.partieVersante }}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									Montant
+								</th>
+								<td>
+									{{ versement.montant|number_format(0, '.', ' ') }}
+								</td>
+							</tr>
+							<tr>
+								<th>
+									DateDeVersement
+								</th>
+								<td>
+									{{ versement.dateDeVersement ? versement.dateDeVersement|date('Y-m-d') : '' }}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<a href="{{ path('app_versement_index') }}">
+						<button class="btn btn-primary" title="retour à la liste">
+							<span class="fa fa-list"></span>
+						</button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

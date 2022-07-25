@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CROUSZ
+{% endblock %}
+
+{% block body %}
+
+	<div
+		class="col-md-3">
+
+		<!-- START WIDGET MESSAGES -->
+		<div class="widget widget-success widget-item-icon" onclick="location.href='{{ path('app_versement_index') }}';">
+			<div class="widget-item-left">
+				<span class="fa fa-inbox"></span>
+			</div>
+			<div class="widget-data">
+				<div class="widget-title">E-CAISSE</div>
+				<div class="widget-subtitle">cliquez dessus pour voir les détails</div>
+			</div>
+			<div class="widget-controls">
+				<a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget">
+					<span class="fa fa-times"></span>
+				</a>
+			</div>
+		</div>
+		<!-- END WIDGET MESSAGES -->
+
+	</div>
+{% endblock %}
+

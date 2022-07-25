@@ -1,0 +1,228 @@
+<style type="text/css">
+	table {
+		width: 100%;
+	}
+</style>
+<page>
+	<table>
+		<tr>
+			<td align="center" style="width:45%;">
+				REPUBLIQUE DU SENEGAL
+				<br>
+				*********************<br>
+				MINISTERE DE L'ENSEIGNEMENT SUPERIEUR
+				<br>
+				DE LA RECHERCHE ET DE L'INNOVATION
+				<br>
+				*************************
+				<br>
+				CENTRE REGIONAL DES OEUVRES
+				<br>
+				UNIVERSITAIRES SOCIALES DE ZIGUINCHOR
+			</td>
+			<td style="width:15%"></td>
+			<td align="right" style="width:40%;">
+				<img src="{{ logo }}" alt="logo" width="80">
+				<br>
+				<b>AGENCE COMPTABLE</b>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<h4 style="width:100%; text-align:center;">
+		<u>QUITTANCE DE PAIEMENT N°
+			<b>{{ versement.numero }}</b>
+		</u>
+	</h4>
+
+	<table>
+		<tbody>
+			<tr>
+				<th style="width:30%;">
+					Objet :
+				</th>
+				<td style="padding:5; width:55%;">
+					{{ versement.objet }}
+				</td>
+				<td style="padding:5; width:15%;" rowspan="4">
+					<qrcode value="#" style="width: 20mm; color: #09AB51; border:none; float:right;"></qrcode>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Partie versante :
+				</th>
+				<td style="padding:5;">
+					{{ versement.partieVersante }}
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Montant :
+				</th>
+				<td style="padding:5;">
+					{{ versement.montant|number_format(0, '.', ' ') }}
+					francs CFA
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Date de réglement :
+				</th>
+				<td style="padding:5;">
+					{{ versement.dateDeVersement ? versement.dateDeVersement|date('d/m/Y') : '' }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<h6 align="center"></h6>
+	<hr>
+	<table>
+		<tr>
+			<td align="center" style="width:45%;">
+				REPUBLIQUE DU SENEGAL
+				<br>
+				*********************<br>
+				MINISTERE DE L'ENSEIGNEMENT SUPERIEUR
+				<br>
+				DE LA RECHERCHE ET DE L'INNOVATION
+				<br>
+				*************************
+				<br>
+				CENTRE REGIONAL DES OEUVRES
+				<br>
+				UNIVERSITAIRES SOCIALES DE ZIGUINCHOR
+			</td>
+			<td style="width:15%"></td>
+			<td align="right" style="width:40%;">
+				<img src="{{ logo }}" alt="logo" width="80">
+				<br>
+				<b>AGENCE COMPTABLE</b>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<h4 style="width:100%; text-align:center;">
+		<u>QUITTANCE DE PAIEMENT N°
+			<b>{{ versement.numero }}</b>
+		</u>
+	</h4>
+
+	<table>
+		<tbody>
+			<tr>
+				<th style="width:30%;">
+					Objet :
+				</th>
+				<td style="padding:5; width:55%;">
+					{{ versement.objet }}
+				</td>
+				<td style="padding:5; width:15%;" rowspan="4">
+					<qrcode value="#" style="width: 20mm; color: #09AB51; border:none; float:right;"></qrcode>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Partie versante :
+				</th>
+				<td style="padding:5;">
+					{{ versement.partieVersante }}
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Montant :
+				</th>
+				<td style="padding:5;">
+					{{ versement.montant|number_format(0, '.', ' ') }}
+					francs CFA
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Date de réglement :
+				</th>
+				<td style="padding:5;">
+					{{ versement.dateDeVersement ? versement.dateDeVersement|date('d/m/Y') : '' }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<h6 align="center"></h6>
+	<hr>
+	<table>
+		<tr>
+			<td align="center" style="width:45%;">
+				REPUBLIQUE DU SENEGAL
+				<br>
+				*********************<br>
+				MINISTERE DE L'ENSEIGNEMENT SUPERIEUR
+				<br>
+				DE LA RECHERCHE ET DE L'INNOVATION
+				<br>
+				*************************
+				<br>
+				CENTRE REGIONAL DES OEUVRES
+				<br>
+				UNIVERSITAIRES SOCIALES DE ZIGUINCHOR
+			</td>
+			<td style="width:15%"></td>
+			<td align="right" style="width:40%;">
+				<img src="{{ logo }}" alt="logo" width="80">
+				<br>
+				<b>AGENCE COMPTABLE</b>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<h4 style="width:100%; text-align:center;">
+		<u>QUITTANCE DE PAIEMENT</u>
+	</h4>
+
+	<table>
+		<tbody>
+			<tr>
+				<th style="width:30%;">
+					Objet :
+				</th>
+				<td style="padding:5; width:55%;">
+					{{ versement.objet }}
+				</td>
+				<td style="padding:5; width:15%;" rowspan="4">
+					<qrcode value="#" style="width: 20mm; color: #09AB51; border:none; float:right;"></qrcode>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Partie versante :
+				</th>
+				<td style="padding:5;">
+					{{ versement.partieVersante }}
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Montant :
+				</th>
+				<td style="padding:5;">
+					{{ versement.montant|number_format(0, '.', ' ') }}
+					francs CFA
+				</td>
+			</tr>
+			<tr>
+				<th>
+					Date de réglement :
+				</th>
+				<td style="padding:5;">
+					{{ versement.dateDeVersement ? versement.dateDeVersement|date('d /m/Y') : '' }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<h6 align="center"></h6>
+
+</page>
+

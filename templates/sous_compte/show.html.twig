@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SousCompte{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h3>Visualisation SousCompte</h3>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <tbody>
+                                                    <tr>
+                                <th>
+                                    Id                                </th>
+                                <td>
+                                    {{ sous_compte.id }}
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    Code                                </th>
+                                <td>
+                                    {{ sous_compte.code }}
+                                </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    Libelle                                </th>
+                                <td>
+                                    {{ sous_compte.libelle }}
+                                </td>
+                            </tr>
+                                            </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a href="{{ path('app_sous_compte_index') }}"><button class="btn btn-primary" title="retour à la liste"><span class="fa fa-list"></span></button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
